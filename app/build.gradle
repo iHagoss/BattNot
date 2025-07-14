@@ -1,0 +1,55 @@
+apply plugin: "com.android.application"
+
+android {
+    namespace "com.hagos.battnot"
+    compileSdk 36
+    defaultConfig {
+        applicationId "com.hagos.battnot"
+        minSdkVersion 17
+        targetSdkVersion 36
+        versionCode 19
+        versionName "1.4.7"
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-DEBUG"
+        }
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+    compileOptions {
+        compileOptions {
+            targetCompatibility 17
+            sourceCompatibility 17
+        }
+    }
+    signingConfigs {
+        debug {
+            storeFile file('../debug.keystore')
+        }
+    }
+    buildFeatures {
+        buildConfig = true
+    }
+}
+
+dependencies {
+    //noinspection GradleDependency
+    implementation "androidx.activity:activity:1.8.2" //Latest version that targets API version 17
+
+    //Required for some dependencies
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.1.0") {
+        because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+    }
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.0") {
+        because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+    }
+
+    implementation "androidx.preference:preference:1.2.1"
+    //We're going deeper
+    implementation "com.github.tiann:FreeReflection:3.2.0"
+}

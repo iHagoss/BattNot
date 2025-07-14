@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreference
+        android:checked="false"
+        android:key="@string/preference_notification"
+        android:summary="@string/preference_notification_desc_summary"
+        android:title="@string/preference_notification_desc"
+        app:iconSpaceReserved="false" />
+    <SwitchPreference
+        android:checked="false"
+        android:key="@string/preference_fahrenheit"
+        android:title="@string/preference_fahrenheit_desc"
+        app:iconSpaceReserved="false" />
+    <SwitchPreference
+        android:checked="false"
+        android:key="@string/preference_immediate"
+        android:summary="@string/preference_immediate_desc_summary"
+        android:title="@string/preference_immediate_desc"
+        app:iconSpaceReserved="false" />
+    <SwitchPreference
+        android:checked="false"
+        android:key="@string/preference_time_remaining"
+        android:summary="@string/preference_notification_settings_desc_summary"
+        android:title="@string/preference_time_remaining_desc"
+        app:iconSpaceReserved="false" />
+    <Preference
+        android:key="@string/preference_notification_settings"
+        android:summary="@string/preference_notification_settings_desc_summary"
+        android:title="@string/preference_notification_settings_desc"
+        app:iconSpaceReserved="false" />
+</PreferenceScreen>
