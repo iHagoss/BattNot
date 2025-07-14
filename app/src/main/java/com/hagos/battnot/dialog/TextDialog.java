@@ -1,4 +1,4 @@
-<package com.hagos.battnot.dialog;
+package com.hagos.battnot.dialog;
 
 import android.content.Context;
 import android.text.SpannableString;
