@@ -1,0 +1,33 @@
+name: Extract ZIPs in-place
+
+on:
+  push:
+    paths:
+      - '**.zip'
+  workflow_dispatch:
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Extract all ZIPs in-place
+        run: |
+          find . -type f -name '*.zip' | while read zipfile; do
+            dir=$(dirname "$zipfile")
+            unzip -o "$zipfile" -d "$dir"
+            rm "$zipfile"
+          done
+
+      - name: Commit extracted files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Extracted ZIPs in-place"
+          git push origin HEAD
